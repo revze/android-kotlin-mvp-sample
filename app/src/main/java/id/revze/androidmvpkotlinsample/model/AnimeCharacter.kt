@@ -1,4 +1,4 @@
-package id.revze.androidmvpkotlinsample.models
+package id.revze.androidmvpkotlinsample.model
 
 import com.google.gson.annotations.SerializedName
 

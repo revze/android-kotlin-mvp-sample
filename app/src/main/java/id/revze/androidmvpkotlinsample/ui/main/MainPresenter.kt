@@ -1,17 +1,11 @@
-package id.revze.androidmvpkotlinsample.views.main
+package id.revze.androidmvpkotlinsample.ui.main
 
 import android.content.Context
-import id.revze.androidmvpkotlinsample.models.AnimeCharacter
-import id.revze.androidmvpkotlinsample.networking.Service
-import id.revze.androidmvpkotlinsample.views.base.Presenter
+import id.revze.androidmvpkotlinsample.model.AnimeCharacter
+import id.revze.androidmvpkotlinsample.api.Api
+import id.revze.androidmvpkotlinsample.ui.base.Presenter
 
-class MainPresenter : Presenter<MainView> {
-
-    private var mainView: MainView? = null
-
-    override fun onAttach(view: MainView) {
-        this.mainView = view
-    }
+class MainPresenter(var mainView: MainView?) : Presenter<MainView> {
 
     override fun onDetach() {
         mainView = null
@@ -20,7 +14,7 @@ class MainPresenter : Presenter<MainView> {
     fun getAnimeCharacters(context: Context) {
         mainView?.showLoader()
 
-        Service().getAnimeCharacters(context, object : Service.GetAnimeCharactersCallback {
+        Api().getAnimeCharacters(context, object : Api.GetAnimeCharactersCallback {
             override fun onSuccess(animeCharacters: ArrayList<AnimeCharacter>) {
                 mainView?.hideLoader()
                 mainView?.onSuccessGetAnimeCharacters(animeCharacters)

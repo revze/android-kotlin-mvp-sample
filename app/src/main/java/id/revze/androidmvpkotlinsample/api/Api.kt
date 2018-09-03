@@ -1,17 +1,18 @@
-package id.revze.androidmvpkotlinsample.networking
+package id.revze.androidmvpkotlinsample.api
 
 import android.content.Context
 import com.google.gson.stream.MalformedJsonException
 import id.revze.androidmvpkotlinsample.R
-import id.revze.androidmvpkotlinsample.models.AnimeCharacter
-import id.revze.androidmvpkotlinsample.models.AnimeResponse
+import id.revze.androidmvpkotlinsample.model.AnimeCharacter
+import id.revze.androidmvpkotlinsample.api.model.AnimeResponse
+import id.revze.androidmvpkotlinsample.api.service.AnimeService
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.io.IOException
 
-class Service {
-    private val networkService = NetworkModule().getInstance().create(NetworkService::class.java)
+class Api {
+    private val networkService = ApiModule().getInstance().create(AnimeService::class.java)
 
     fun getAnimeCharacters(context: Context, callback: GetAnimeCharactersCallback) {
         val animeResponse = networkService.getAnimeCharacters()

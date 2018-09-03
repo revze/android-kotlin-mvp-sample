@@ -1,4 +1,4 @@
-package id.revze.androidmvpkotlinsample.views.main
+package id.revze.androidmvpkotlinsample.ui.main
 
 import android.app.ProgressDialog
 import android.content.Context
@@ -8,7 +8,8 @@ import android.support.design.widget.Snackbar
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import id.revze.androidmvpkotlinsample.R
-import id.revze.androidmvpkotlinsample.models.AnimeCharacter
+import id.revze.androidmvpkotlinsample.model.AnimeCharacter
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), MainView {
 
@@ -22,20 +23,15 @@ class MainActivity : AppCompatActivity(), MainView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        mainPresenter = MainPresenter()
-        onAttachView()
+        mainPresenter = MainPresenter(this)
 
         context = this
         animeCharacters = arrayListOf()
-        rvAnimeCharacter = findViewById(R.id.rv_anime_character)
+        rvAnimeCharacter = this.rv_anime_character
         rvAnimeCharacter.layoutManager = LinearLayoutManager(context)
         animeCharacterAdapter = AnimeCharacterAdapter(animeCharacters)
         rvAnimeCharacter.adapter = animeCharacterAdapter
         mainPresenter.getAnimeCharacters(context)
-    }
-
-    override fun onAttachView() {
-        mainPresenter.onAttach(this)
     }
 
     override fun onDetachView() {

@@ -1,9 +1,9 @@
-package id.revze.androidmvpkotlinsample.networking
+package id.revze.androidmvpkotlinsample.api
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class NetworkModule {
+class ApiModule {
     fun getInstance(): Retrofit {
         return Retrofit.Builder()
                 .baseUrl("https://api.jikan.moe")

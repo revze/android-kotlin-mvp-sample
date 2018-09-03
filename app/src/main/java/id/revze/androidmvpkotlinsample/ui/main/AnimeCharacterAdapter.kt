@@ -1,4 +1,4 @@
-package id.revze.androidmvpkotlinsample.views.main
+package id.revze.androidmvpkotlinsample.ui.main
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import com.facebook.drawee.view.SimpleDraweeView
 import id.revze.androidmvpkotlinsample.R
-import id.revze.androidmvpkotlinsample.models.AnimeCharacter
+import id.revze.androidmvpkotlinsample.model.AnimeCharacter
 
 class AnimeCharacterAdapter(val animeCharacters: ArrayList<AnimeCharacter>) : RecyclerView.Adapter<AnimeCharacterAdapter.AnimeCharacterViewHolder>() {
 

@@ -1,7 +1,7 @@
-package id.revze.androidmvpkotlinsample.views.main
+package id.revze.androidmvpkotlinsample.ui.main
 
-import id.revze.androidmvpkotlinsample.models.AnimeCharacter
-import id.revze.androidmvpkotlinsample.views.base.View
+import id.revze.androidmvpkotlinsample.model.AnimeCharacter
+import id.revze.androidmvpkotlinsample.ui.base.View
 
 interface MainView : View {
     fun showLoader()
